@@ -14,10 +14,15 @@ public class DriverClass {
         
         AmericanPlug usaPlug = new American230vAppliancePlug();
         
+        AmericanPlug usaPlug2 = new American110vNormalPlug();//create a new american plug, this is the 110 volt version though 
+        EuropeanPowerSocket eSock2 = new EuropeanPowerSocket();//create a new european socket, no difference here 
+        EuropeanPlug ePlug2 = new AmericanToEuropeanPlugAdapter(usaPlug2);//create a new adapter for the 110v plug to european plug 
+        
         EuropeanPowerSocket eSocket= new EuropeanPowerSocket();
         EuropeanPlug ePlug= new AmericanToEuropeanPlugAdapter(usaPlug);
         
         eSocket.plugIn(ePlug);
+        eSock2.plugIn(ePlug2);//used to print the 110v version of the american plug 
     }
     
 }
